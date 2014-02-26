@@ -55,20 +55,8 @@
 
                 window.google.load('visualization', apiConfig.version, settings);
             };
-            var head = document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-
-            script.setAttribute('type', 'text/javascript');
-            script.src = googleJsapiUrl;
-            head.appendChild(script);
-
-            script.onreadystatechange = function () {
-                if (this.readyState == 'complete') {
-                    onLoad();
-                }
-            };
-
-            script.onload = onLoad;
+            
+            jQuery.getScript('//www.google.com/jsapi', onLoad);
 
             return apiReady.promise;
         }])
