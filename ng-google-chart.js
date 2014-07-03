@@ -65,9 +65,9 @@
                 restrict: 'A',
                 scope: {
                     chart: '=chart',
-                    onReady: '&',
-                    onSelect: '&',
-                    select: '&'
+                    onReady: '=',
+                    onSelect: '=',
+                    select: '='
                 },
                 link: function ($scope, $elm, $attrs) {
                     /* Watches, to refresh the chart when its data, formatters, options, or type change.
