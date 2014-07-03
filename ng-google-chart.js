@@ -65,9 +65,9 @@
                 restrict: 'A',
                 scope: {
                     chart: '=chart',
-                    onReady: '=',
+                    onReady: '&',
                     onSelect: '=',
-                    select: '='
+                    select: '&'
                 },
                 link: function ($scope, $elm, $attrs) {
                     /* Watches, to refresh the chart when its data, formatters, options, or type change.
@@ -179,7 +179,8 @@
                                                 console.log('Angular-Google-Chart: The \'select\' attribute is deprecated and will be removed in a future release.  Please use \'onSelect\'.');
                                                 $scope.select({selectedItem: selectedItem});
                                         }
-                                            else {
+                                            //Prevent error if callback is undefined
+                                            else if($attrs.onSelect){
                                                 $scope.onSelect({ selectedItem: selectedItem });
                                             }
                                     });
